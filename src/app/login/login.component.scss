@@ -121,3 +121,12 @@ button {
 button:hover {
     background-color: #0056b3;
 }
+.error-message {
+  color: #721c24; /* Red color for error text */
+  background-color: #f8d7da; /* Light red background */
+  border: 1px solid #f5c6cb; /* Red border */
+  padding: 10px; /* Padding around the error message */
+  margin-bottom: 15px; /* Space below the error message */
+  border-radius: 4px; /* Rounded corners */
+}
+

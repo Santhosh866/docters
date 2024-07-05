@@ -1,0 +1,11 @@
+{
+  "/api": {
+    "target": "https://devsbt.scribebrain.com",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/api": ""
+    }
+  }
+}

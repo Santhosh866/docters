@@ -5,23 +5,29 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DataTableComponent } from './data-table/data-table.component';
 import { AuthGuard } from './auth.guard';
+import { NoteReviewComponent } from './note-review/note-review.component';
+import { SuccessmessageComponent } from './components/successmessage/successmessage.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    DataTableComponent
+    DataTableComponent,
+    NoteReviewComponent,
+    SuccessmessageComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule, 
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
-  providers: [AuthGuard],
+  providers: [AuthGuard, provideAnimationsAsync()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DataTableComponent } from './data-table.component';
+import { NoteReviewComponent } from './note-review.component';
 
-describe('DataTableComponent', () => {
-  let component: DataTableComponent;
-  let fixture: ComponentFixture<DataTableComponent>;
+describe('NoteReviewComponent', () => {
+  let component: NoteReviewComponent;
+  let fixture: ComponentFixture<NoteReviewComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [DataTableComponent]
+      declarations: [NoteReviewComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(DataTableComponent);
+    fixture = TestBed.createComponent(NoteReviewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
