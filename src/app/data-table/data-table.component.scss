@@ -82,6 +82,17 @@
   color: #fff;
   border-color: #007bff;
 }
+/* Search Container */
+.search-container {
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.search-container mat-form-field {
+  width: 100%;
+  max-width: 400px;
+}
 
 .page-item.disabled .page-link {
   color: #999;
@@ -89,13 +100,22 @@
   border-color: #ccc;
   pointer-events: none;
 }
-// .status-review {
-//   background-color: green; /* or any other color */
-// }
-
-// .status-completed {
-//   background-color: red; /* or any other color */
-// }
-// .status-inprogress {
-//   background-color: yellow; /* or any other color */
-// }
+@media (max-width: 600px) {
+  .toolbar {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .logo {
+    height: 30px; /* Adjust for mobile view */
+    margin-bottom: 8px;
+  }
+  
+  .table-container {
+    padding: 8px;
+  }
+  
+  th, td {
+    font-size: 14px; /* Adjust text size for smaller screens */
+  }
+}

@@ -1,0 +1,37 @@
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #sidenav class="sidenav" fixedInViewport mode="side" closed>
+      <mat-toolbar>Menu</mat-toolbar>
+      <mat-nav-list>
+        <a mat-list-item routerLink="/data" routerLinkActive="active-link">
+            <mat-icon>list</mat-icon>
+            <span class="nav-text">Note List</span>
+        </a>
+        <a mat-list-item routerLink="/contact" routerLinkActive="active-link">
+            <mat-icon>contacts</mat-icon>
+            <span class="nav-text">Contact</span>
+        </a>
+        <!-- <a mat-list-item (click)="logout()">Logout</a> -->
+      </mat-nav-list>
+    </mat-sidenav>
+  
+    <mat-sidenav-content>
+      <mat-toolbar color="primary">
+        <button mat-icon-button (click)="sidenav.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <div class="app-logo">
+          <img src="assets/logo.png" alt="Scribe Brain" class="logo-img">
+        </div>
+          <!-- Spacer to push the notification icon to the right -->
+  <span class="fill-remaining-space"></span>
+   <!-- Logout Button -->
+   <button mat-icon-button (click)="logout()">
+    <mat-icon>exit_to_app</mat-icon>
+  </button>
+      </mat-toolbar>
+      <div class="main-content">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  

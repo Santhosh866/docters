@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 import { NoteViewService } from '../service/note-view.service';
 import { ActivatedRoute, Params } from '@angular/router';
 import { SuccessService } from '../service/success.service';
@@ -9,15 +9,13 @@ import { SuccessService } from '../service/success.service';
 })
 export class NoteReviewComponent {
   data: any;
-  textareaContent: any;
-  textareaPhysicalExamText: any;
-  textareaReviewOfSystemsText: any;
-  textareaAssessmentText: any;
+  textareaContent='';
+  textareaPhysicalExamText='';
+  textareaReviewOfSystemsText='';
+  textareaAssessmentText='';
   id: string ='';
 
   constructor(private apiService:NoteViewService,private route: ActivatedRoute,private successService: SuccessService) {
-     }
-  ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
       this.id = params['id'];
       console.log('Fetched ID:', this.id);
@@ -27,10 +25,21 @@ export class NoteReviewComponent {
       this.apiService.getData(accessToken,this.id).subscribe(
         response => {
           this.data = response;
-          this.textareaContent = this.data?.note?.HistoryOfPresentIllnessText;
-          this.textareaPhysicalExamText = this.data?.note?.PhysicalExamText;
-          this.textareaReviewOfSystemsText = this.data?.note?.ReviewOfSystemsText;
-          this.textareaAssessmentText = this.data?.note?.AssessmentText;
+          this.data.id = this.id;
+          // Retrieve the existing array from local storage, or initialize it if it doesn't exist
+const storedData = localStorage.getItem('patientDataArray');
+let patientDataArray: object[] = [];
+
+// Check if storedData is not null and parse it
+if (storedData) {
+  patientDataArray = JSON.parse(storedData);
+}
+
+// Add the new object to the array
+patientDataArray.push(this.data);
+
+// Save the updated array back to local storage
+localStorage.setItem('patientDataArray', JSON.stringify(patientDataArray));
           console.log("NoteList API Response",this.data);
         },
         error => {
@@ -73,28 +82,31 @@ export class NoteReviewComponent {
       // Implement HTTP request or other actions here
     }
   
-    // Method to handle save action
-    handleSave(): void {
-      // Replace with actual save logic
-      this.saveToLocalStorage();
-      console.log('Text area data saved!');
-      // Implement HTTP request or other actions here
-    }
 
-     // Method to load data from local storage
-  private loadFromLocalStorage(): void {
-    this.textareaContent = localStorage.getItem('textareaContent') || '';
-    this.textareaPhysicalExamText = localStorage.getItem('textareaPhysicalExamText') || '';
-    this.textareaReviewOfSystemsText = localStorage.getItem('textareaReviewOfSystemsText') || '';
-    this.textareaAssessmentText = localStorage.getItem('textareaAssessmentText') || '';
+
+  onSave() {
   }
 
-  // Method to save data to local storage
-  private saveToLocalStorage(): void {
-    localStorage.setItem('textareaContent', this.textareaContent);
-    localStorage.setItem('textareaPhysicalExamText', this.textareaPhysicalExamText);
-    localStorage.setItem('textareaReviewOfSystemsText', this.textareaReviewOfSystemsText);
-    localStorage.setItem('textareaAssessmentText', this.textareaAssessmentText);
+  onTextChange1(event: Event) {
+    const newText = (event.target as HTMLElement).innerText;
+    this.textareaContent = newText;
+    console.log("1",this.textareaContent)
+  }
+  onTextChange2(event: Event) {
+    const newText = (event.target as HTMLElement).innerText;
+    this.textareaPhysicalExamText = newText;
+    console.log("2",this.textareaPhysicalExamText)
+
+  }
+  onTextChange3(event: Event) {
+    const newText = (event.target as HTMLElement).innerText;
+    this.textareaReviewOfSystemsText = newText;
+    console.log("3",this.textareaReviewOfSystemsText)
+
+  }
+  onTextChange4(event: Event) {
+    const newText = (event.target as HTMLElement).innerText;
+    this.textareaAssessmentText = newText;
   }
 
 }

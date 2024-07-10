@@ -1,22 +1,53 @@
-<div class="form-group">
-    <label for="myTextArea">History of present illness text</label><br>
-    <textarea rows="10" cols="80" placeholder="Enter your text here..." [(ngModel)]="textareaContent"></textarea>
-</div>
-<div class="form-group">
-    <label for="myTextArea">Review Of Systems Text</label><br>
-    <textarea rows="10" cols="40" placeholder="Enter your text here..." [(ngModel)]="textareaReviewOfSystemsText"></textarea>
-</div>
-<div class="form-group">
-    <label for="myTextArea">Physical Exam Text</label><br>
-    <textarea rows="10" cols="40" placeholder="Enter your text here..." [(ngModel)]="textareaPhysicalExamText"></textarea>
-</div>
-<div class="form-group">
-    <label for="myTextArea">Assessment Text</label><br>
-    <textarea rows="10" cols="40" placeholder="Enter your text here..." [(ngModel)]="textareaAssessmentText"></textarea>
+<div fxLayout="row" fxLayoutGap="20px">
+  <mat-card  fxFlex="50%" class="scrollable-card">
+    <mat-card-header>
+        <mat-card-title class="mat-title">History Of Present Illness Text</mat-card-title>
+      </mat-card-header>
+    <mat-card-content>
+      <div contenteditable="true"class="editable-content scrollable-content"
+      (input)="onTextChange1($event)" >{{this.data?.note?.HistoryOfPresentIllnessText}}
+      </div>
+    </mat-card-content>
+  </mat-card>
+  <mat-card  fxFlex="50%">
+    <mat-card-header>
+        <mat-card-title class="mat-title">Review Of Systems Text</mat-card-title>
+      </mat-card-header>
+    <mat-card-content>
+      <div contenteditable="true" class="editable-content scrollable-content"
+      (input)="onTextChange2($event)"> {{this.data?.note?.ReviewOfSystemsText}}
+      </div>
+    </mat-card-content>
+  </mat-card>
+  </div>
+  <br>
+  <div fxLayout="row" fxLayoutGap="20px">
+  <mat-card fxFlex="50%">
+    <mat-card-header>
+        <mat-card-title class="mat-title">Physical Exam Text</mat-card-title>
+      </mat-card-header>
+    <mat-card-content>
+      <div contenteditable="true" class="editable-content scrollable-content"
+      (input)="onTextChange3($event)" > {{this.data?.note?.PhysicalExamText}}
+      </div>
+    </mat-card-content>
+  </mat-card>
+  <mat-card fxFlex="50%">
+    <mat-card-header>
+        <mat-card-title class="mat-title">Assessment Text</mat-card-title>
+      </mat-card-header>
+    <mat-card-content>
+      <div contenteditable="true" class="editable-content scrollable-content "
+      (input)="onTextChange4($event)" >{{this.data?.note?.AssessmentText}}
+      </div>
+    </mat-card-content>
+  </mat-card>
 </div>
 <div class="button-container">
-    <button class="custom-button submit-button" (click)="handleSubmit()">Submit</button>
-    <button class="custom-button save-button" (click)="handleSave()">Save</button>
-  </div>
+  <button mat-raised-button color="primary" (click)="onSave()">Save</button>
+  <button mat-raised-button color="accent" (click)="handleSubmit()">Submit</button>
+</div>
+  
+  
   
 

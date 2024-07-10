@@ -11,6 +11,23 @@ import { AuthGuard } from './auth.guard';
 import { NoteReviewComponent } from './note-review/note-review.component';
 import { SuccessmessageComponent } from './components/successmessage/successmessage.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { MatButtonModule } from '@angular/material/button';
+import { SidenavComponent } from './sidenav/sidenav.component';
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
+import { LayoutComponent } from './layout/layout.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table';
+import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -19,13 +36,30 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     DataTableComponent,
     NoteReviewComponent,
     SuccessmessageComponent,
+    SidenavComponent,
+    HomeComponent,
+    AboutComponent,
+    ContactComponent,
+    LayoutComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule, 
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatListModule,
+    MatButtonModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatCardModule,
+    MatInputModule,
+    FlexLayoutModule
   ],
   providers: [AuthGuard, provideAnimationsAsync()],
   bootstrap: [AppComponent]
