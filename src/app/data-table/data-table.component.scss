@@ -10,13 +10,16 @@
   font-size: 0.9em;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   min-width: 400px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  // box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
 .styled-table thead tr {
   background-color: #009879;
-  color: #ffffff;
+  color: #000 !important;
   text-align: left;
+}
+::ng-deep .mat-mdc-row {
+  color: #777C7E !important;
 }
 
 .styled-table th,
@@ -118,4 +121,67 @@
   th, td {
     font-size: 14px; /* Adjust text size for smaller screens */
   }
+}
+.custom-shaped-card {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 50% 100%, 0% 80%);
+}
+.mat-card {
+  border-radius: 20px 5px 20px 5px; /* Example: Different radius for each corner */
+  border: 2px solid #ccc; /* Example: Custom border */
+}
+::ng-deep .mat-mdc-table {
+    background-color: #ffffff !important;
+    border: 1px solid #c1eadb !important;
+    /* box-shadow: none !important; */
+}
+::ng-deep .mat-mdc-header-row {
+  color: #000 !important;
+  font-weight: bold !important;
+}
+::ng-deep .mdc-data-table__content tr:nth-child(even){
+  background: #F1F9F6 !important;
+}
+::ng-deep .mdc-data-table__content tr:nth-child(odd){
+  background: #ffffff !important;
+}
+:ng-deep td.mat-mdc-cell.mdc-data-table__cell.cdk-cell.cdk-column-status.mat-column-status.ng-star-inserted {
+  border-radius: 10px;
+  padding: 5px 10px;
+  color: black;
+  display: table;
+}
+::ng-deep .mat-mdc-paginator{
+  background-color: #F1F9F6 !important;
+  color: #1B1E22 !important ;
+}
+::ng-deep .mat-mdc-paginator .mat-mdc-icon-button {
+  background-color: #47D186 !important;
+}
+::ng-deep .mat-mdc-paginator-container {
+  justify-content: space-between !important;
+}
+::ng-deep .mat-mdc-paginator-outer-container {
+  margin-top: 20px !important;
+}
+::ng-deep .mat-mdc-select-value {
+  color: black !important;
+}
+::ng-deep .mat-mdc-select-arrow {
+  color: black !important;
+}
+::ng-deep .mat-mdc-select, .mat-mdc-select:active {
+  border: 1px solid #000 !important;
+  padding: 1px 5px !important;
+}
+::ng-deep .mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled) .mdc-list-item__primary-text {
+  color: #ffffff !important
+}
+::ng-deep .mat-mdc-icon-button.mat-mdc-button-base {
+  --mdc-icon-button-state-layer-size: 35px !important;
+  padding: 5px !important;
+  margin-left: 10px;
+}
+::ng-deep .mat-mdc-unelevated-button:not(:disabled) {
+  padding: 5px;
+  font-size: 12px;
 }

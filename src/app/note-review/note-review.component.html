@@ -1,53 +1,17 @@
-<div fxLayout="row" fxLayoutGap="20px">
-  <mat-card  fxFlex="50%" class="scrollable-card">
+<div fxLayout="column" fxLayoutGap="20px">
+  <mat-card fxFlex="100%" *ngFor="let key of getNoteKeys()" class="custom-shaped-card">
     <mat-card-header>
-        <mat-card-title class="mat-title">History Of Present Illness Text</mat-card-title>
-      </mat-card-header>
+      <mat-card-title class="mat-title">{{ key }}</mat-card-title>
+    </mat-card-header>
     <mat-card-content>
-      <div contenteditable="true"class="editable-content scrollable-content"
-      (input)="onTextChange1($event)" >{{this.data?.note?.HistoryOfPresentIllnessText}}
+      <div class="editable-content scrollable-content">
+        <textarea matInput [(ngModel)]="data.note[key]" (ngModelChange)="onTextChange($event, key)" class="editable-textarea"></textarea>
       </div>
     </mat-card-content>
   </mat-card>
-  <mat-card  fxFlex="50%">
-    <mat-card-header>
-        <mat-card-title class="mat-title">Review Of Systems Text</mat-card-title>
-      </mat-card-header>
-    <mat-card-content>
-      <div contenteditable="true" class="editable-content scrollable-content"
-      (input)="onTextChange2($event)"> {{this.data?.note?.ReviewOfSystemsText}}
-      </div>
-    </mat-card-content>
-  </mat-card>
-  </div>
-  <br>
-  <div fxLayout="row" fxLayoutGap="20px">
-  <mat-card fxFlex="50%">
-    <mat-card-header>
-        <mat-card-title class="mat-title">Physical Exam Text</mat-card-title>
-      </mat-card-header>
-    <mat-card-content>
-      <div contenteditable="true" class="editable-content scrollable-content"
-      (input)="onTextChange3($event)" > {{this.data?.note?.PhysicalExamText}}
-      </div>
-    </mat-card-content>
-  </mat-card>
-  <mat-card fxFlex="50%">
-    <mat-card-header>
-        <mat-card-title class="mat-title">Assessment Text</mat-card-title>
-      </mat-card-header>
-    <mat-card-content>
-      <div contenteditable="true" class="editable-content scrollable-content "
-      (input)="onTextChange4($event)" >{{this.data?.note?.AssessmentText}}
-      </div>
-    </mat-card-content>
-  </mat-card>
-</div>
-<div class="button-container">
+  <div class="button-container">
   <button mat-raised-button color="primary" (click)="onSave()">Save</button>
-  <button mat-raised-button color="accent" (click)="handleSubmit()">Submit</button>
+  <button mat-raised-button color="accent" (click)="onSubmit()">Submit</button>
 </div>
-  
-  
-  
+</div>
 

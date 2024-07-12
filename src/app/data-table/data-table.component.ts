@@ -66,15 +66,15 @@ export class DataTableComponent implements OnInit, AfterViewInit {
   getStatusColor(status: string): string {
     switch (status) {
       case 'Completed':
-        return '#b3ffb3'; // or any color
+        return '#D8F7E8'; // or any color
       case 'In Progress':
-        return '#f0f0f0'; // or any color
+        return '#F7F5C6'; // or any color
       default:
-        return '#b2ffff'; // default color
+        return '#F7E1E1'; // default color
     }
   }
   getVerifiedColor(row: any): string {
-    return row.verified ? 'primary' : 'accent';
+    return row.verified ? '#47D186' : 'accent';
   }
   onClick(row:UserData) {
     const accessToken : string | null = localStorage.getItem('access_token');

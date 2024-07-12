@@ -1,13 +1,4 @@
-.custom-textarea {
-    width: 100%; /* Make the text area expand to fill its container */
-    height: 150px; /* Set the height of the text area */
-    padding: 10px; /* Add padding inside the text area */
-    font-size: 16px; /* Set the font size of text inside the text area */
-    border: 1px solid #ccc; /* Add a border around the text area */
-    border-radius: 5px; /* Add border-radius for rounded corners */
-    resize: vertical; /* Allow vertical resizing only */
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
-  }
+
   .form-group {
     margin-bottom: 20px;
   }
@@ -51,9 +42,8 @@
     margin-right: 10px;
   }
   .editable-content {
-    border: 1px solid #ccc;
-    padding: 10px;
     min-height: 100px; /* Adjust as needed */
+    
   }
   .card-width-50 {
     width: 50%;
@@ -67,8 +57,7 @@
   
   .scrollable-content {
     flex: 1;
-    overflow-y: auto; /* Add vertical scroll */
-    padding-right: 10px; /* Optional: add padding to avoid scrollbar overlap */
+    // overflow-y: auto; /* Add vertical scroll */
   }
   .button-container {
     display: flex;
@@ -84,7 +73,54 @@
     background-color: #f5f5f5;
     height: auto !important; /* Override the height property */
   }
+  .fixed-height-card {
+    height: 300px;
+    overflow: auto;
+    flex-direction: column;
+  }
   
+  @media (max-width: 600px) {
+    .fixed-height-card {
+      height: 150px; /* Smaller height for small screens */
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .fixed-height-card {
+      height: 250px; /* Larger height for large screens */
+    }
+  }
+  
+  .editable-textarea {
+    width: 95%;
+    min-height: 150px;
+    padding: 20px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+    margin-top: 10px;
+  }
+  
+  .editable-textarea:focus {
+    outline: none; /* Remove default focus outline */
+  }
+  ::ng-deep.mat-mdc-card {
+    background-color: #F1F9F6 !important;
+  };
+  /* Example: note-review.component.css */
+
+.custom-shaped-card {
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  background-color: #f0f0f0;
+}
+::ng-deep .mat-drawer-container, .mat-mdc-card {
+  color: #000 !important;
+  box-shadow: none;
+
+}
+
   
   
   

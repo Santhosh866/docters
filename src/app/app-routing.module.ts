@@ -7,8 +7,8 @@ import { NoteReviewComponent } from './note-review/note-review.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { HomeComponent } from './home/home.component';
-import { LayoutComponent } from './layout/layout.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
+//import { NoteReviewAccordianComponent } from './note-review-accordian/note-review-accordian.component';
 
 const routes: Routes = [
   {path : 'login', component:LoginComponent},
@@ -16,12 +16,13 @@ const routes: Routes = [
     path: '',
     component: SidenavComponent,
     children: [
-      { path: '', redirectTo: '/data', pathMatch: 'full' },
+      { path: '', redirectTo: '/login', pathMatch: 'full' },
       { path: 'home', component: HomeComponent },
       { path: 'about', component: AboutComponent },
       { path: 'contact', component: ContactComponent },
       {path : 'data', component:DataTableComponent},
       {path : 'note/:id', component:NoteReviewComponent},
+      // {path : 'note-review/:id', component:NoteReviewAccordianComponent},
     ],
   },
   { path: '**', redirectTo: '/login' }

@@ -7,7 +7,9 @@ import { Observable } from 'rxjs';
 })
 export class NoteViewService {
   private apiUrl = '/api/v1/ui-connect/note-review?audio_id=';
+  private apiUpdatedUrl = '/api/v1/ui-connect/note-review-update?audio_id=';
   private postApiUrl = '/api/v1/ui-connect/note-review';
+  private postUpdatedApiUrl = '/api/v1/ui-connect/note-review-update';
    constructor(private http: HttpClient) {}
  
    getData(accessToken: string,id:string): Observable<any> {
@@ -16,14 +18,25 @@ export class NoteViewService {
  
      return this.http.get(this.apiUrl+id, { headers });
    }
-   postData(accessToken: string,audioId: string, noteData: any): Observable<any> {
+   postData(accessToken: string, note: any): Observable<any> {
+    debugger;
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${accessToken}`    });
-      const body = {
-        audio_id: audioId,
-        note: noteData
-      };
+      const body = note
 
     return this.http.post(this.postApiUrl,body, { headers });
+  }
+  getUpdatedData(accessToken: string,id:string): Observable<any> {
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${accessToken}`    });
+
+    return this.http.get(this.apiUpdatedUrl+id, { headers });
+  }
+  postUpdatedData(accessToken: string,note: any): Observable<any> {
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${accessToken}`    });
+      const body = note
+
+    return this.http.post(this.postUpdatedApiUrl,body, { headers });
   }
  }

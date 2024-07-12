@@ -1,0 +1,34 @@
+.wheel-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+  }
+  
+  .wheel {
+    width: 300px;
+    height: 300px;
+    border: 5px solid #333;
+    border-radius: 50%;
+    position: relative;
+    transition: transform 4s cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+  
+  .segment {
+    width: 50%;
+    height: 50%;
+    background-color: lightblue;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: 0% 0%;
+  }
+  
+  .segment span {
+    display: block;
+    width: 100%;
+    text-align: right;
+    padding-right: 10px;
+    transform-origin: 0% 0%;
+  }
+  

@@ -28,6 +28,9 @@ import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatFormFieldModule } from '@angular/material/form-field';
+//import { NoteReviewAccordianComponent } from './note-review-accordian/note-review-accordian.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +44,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     AboutComponent,
     ContactComponent,
     LayoutComponent,
+    //NoteReviewAccordianComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,7 +63,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatSortModule,
     MatCardModule,
     MatInputModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatExpansionModule,
+    MatFormFieldModule
   ],
   providers: [AuthGuard, provideAnimationsAsync()],
   bootstrap: [AppComponent]
